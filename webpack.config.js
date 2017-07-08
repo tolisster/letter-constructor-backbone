@@ -41,10 +41,15 @@ const webpackCommon = {
     new CopyWebpackPlugin([{
       from: './app/assets/index.html',
       to: './index.html'
-    }]),
+    },
+      {
+        from: './node_modules/bootstrap/dist/css/bootstrap.css',
+        to: './bootstrap/bootstrap.min.css'
+      }]),
     new webpack.ProvidePlugin({
       $: 'jquery',
-      _: 'underscore'
+      _: 'underscore',
+      jQuery: 'jquery'
     })
   ],
   resolve: {

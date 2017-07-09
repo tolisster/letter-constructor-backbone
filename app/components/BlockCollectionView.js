@@ -26,7 +26,6 @@ export default Marionette.CollectionView.extend({
 
   onSettingsUpdate() {
     const color = this.options.settingsModel.get('background-color');
-    console.log('settings update', color);
     this.$el.css('background-color', color);
   }
 });

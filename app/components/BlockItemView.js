@@ -6,8 +6,15 @@ export default Marionette.View.extend({
   ui: {
     textarea: 'textarea'
   },
+  events: {
+    'input': 'onInput'
+  },
 
   onRender() {
     this.getUI('textarea').val(this.model.get('content'));
+  },
+
+  onInput() {
+    this.model.set('content', this.getUI('textarea').val());
   }
 });

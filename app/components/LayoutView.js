@@ -1,4 +1,5 @@
 import Marionette from 'backbone.marionette';
+import Block from '../models/Block';
 import BlockCollection from '../collections/BlockCollection';
 import BlockCollectionView from './BlockCollectionView';
 import ToolsView from './ToolsView';
@@ -24,6 +25,10 @@ export default Marionette.View.extend({
     this.showChildView('tools', new ToolsView({
       blockCollectionView: this.blockCollectionView
     }));
-    $('ul, li').disableSelection();
+    this.$el.find('ul, li').disableSelection();
+
+    this.blockCollection.add(new Block({content: 'text1'}));
+    this.blockCollection.add(new Block({content: 'text2'}));
+    this.blockCollection.add(new Block({content: 'text3'}));
   }
 });

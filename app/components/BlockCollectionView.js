@@ -1,12 +1,13 @@
 import Marionette from 'backbone.marionette';
 import BlockItemView from './BlockItemView';
+import Sortable from '../behaviors/SortableBehavior';
 
 export default Marionette.CollectionView.extend({
   childView: BlockItemView,
-
-  onRender() {
-    this.$el.sortable({
-      revert: true
-    });
-  }
+  behaviors: [
+    {
+      behaviorClass: Sortable,
+      containment: 'parent'
+    }
+  ]
 });

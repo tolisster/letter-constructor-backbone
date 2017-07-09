@@ -1,5 +1,6 @@
 import './styles/application.css';
-import 'bootstrap'
+import 'bootstrap';
+import 'jquery-ui-bundle';
 import App from 'components/App';
 
 document.addEventListener('DOMContentLoaded', () => {

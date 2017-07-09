@@ -1,16 +1,25 @@
-html, body, #app, #app .layout, #app .container, #app .container > .row, #app .container > .row > div, #app .container > .row > div > div {
+html, body, #app, #app .layout, #app .container, #app .container > .row, #app .container > .row > div, #app .container > .row > .blocks > div {
   height: 100%;
+}
+#app .container > .row .blocks {
+  padding: 10px;
+}
+#app .container > .row .blocks > div {
+  box-shadow: 3px 3px 5px 6px #ccc;
+  padding: 10px;
+  background-color: antiquewhite;
 }
 #app .container > .row .blocks .handle {
   cursor: move;
   background-color: aliceblue;
+  padding: 1px 0;
 }
 #app .container > .row .blocks .handle .icon-bar {
   background-color: antiquewhite;
   width: 22px;
   height: 2px;
   border-radius: 1px;
-  margin-top: 5px;
+  margin: 5px 0;
 }
 #app .container > .row .blocks textarea {
   width: 100%;

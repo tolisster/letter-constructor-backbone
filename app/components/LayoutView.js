@@ -26,9 +26,5 @@ export default Marionette.View.extend({
       blockCollectionView: this.blockCollectionView
     }));
     this.$el.find('ul, li').disableSelection();
-
-    this.blockCollection.add(new Block);
-    this.blockCollection.add(new Block);
-    this.blockCollection.add(new Block);
   }
 });

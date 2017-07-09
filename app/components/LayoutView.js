@@ -1,8 +1,9 @@
+import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
-import Block from '../models/Block';
 import BlockCollection from '../collections/BlockCollection';
 import BlockCollectionView from './BlockCollectionView';
 import ToolsView from './ToolsView';
+import FieldView from './FieldView';
 import template from '../templates/layout.jst';
 
 export default Marionette.View.extend({
@@ -10,13 +11,16 @@ export default Marionette.View.extend({
   className: 'layout',
   regions: {
     blocks: '.blocks',
-    tools: '.tools'
+    tools: '.tools',
+    backgroundColorField: '.background-color-field'
   },
 
   initialize() {
+    this.settingsModel = new Backbone.Model({'background-color': '#faebd7'});
     this.blockCollection = new BlockCollection;
     this.blockCollectionView = new BlockCollectionView({
-      collection: this.blockCollection
+      collection: this.blockCollection,
+      settingsModel: this.settingsModel
     });
   },
 
@@ -26,5 +30,13 @@ export default Marionette.View.extend({
       blockCollectionView: this.blockCollectionView
     }));
     this.$el.find('ul, li').disableSelection();
+    this.showChildView('backgroundColorField', new FieldView({
+      model: this.settingsModel,
+      fieldName: 'background-color',
+      attributes: {
+        type: 'color',
+        className: 'form-control'
+      }
+    }));
   }
 });

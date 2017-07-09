@@ -7,12 +7,11 @@ html, body, #app, #app .layout, #app .container, #app .container > .row, #app .c
 #app .container > .row .blocks > div {
   box-shadow: 3px 3px 5px 6px #ccc;
   padding: 10px;
-  background-color: antiquewhite;
 }
 #app .container > .row .blocks .handle {
   cursor: move;
   background-color: aliceblue;
-  padding: 1px 0;
+  padding: 1px 3px;
 }
 #app .container > .row .blocks .handle .icon-bar {
   background-color: antiquewhite;

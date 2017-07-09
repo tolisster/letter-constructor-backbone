@@ -12,7 +12,21 @@ export default Marionette.CollectionView.extend({
     }
   ],
 
+  initialize(options) {
+    this.listenTo(options.settingsModel, 'change', this.onSettingsUpdate);
+  },
+
+  onRender() {
+    this.onSettingsUpdate();
+  },
+
   onReceiveView(index) {
     this.collection.add(new Block, {at: index});
+  },
+
+  onSettingsUpdate() {
+    const color = this.options.settingsModel.get('background-color');
+    console.log('settings update', color);
+    this.$el.css('background-color', color);
   }
 });

@@ -27,8 +27,8 @@ export default Marionette.View.extend({
     }));
     this.$el.find('ul, li').disableSelection();
 
-    this.blockCollection.add(new Block({content: 'text1'}));
-    this.blockCollection.add(new Block({content: 'text2'}));
-    this.blockCollection.add(new Block({content: 'text3'}));
+    this.blockCollection.add(new Block);
+    this.blockCollection.add(new Block);
+    this.blockCollection.add(new Block);
   }
 });

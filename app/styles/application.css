@@ -2,9 +2,36 @@ html, body, #app, #app .layout, #app .container, #app .container > .row, #app .c
   height: 100%;
 }
 #app .container > .row .blocks .handle {
-  background-color: khaki;
-  height: 10px;
+  cursor: move;
+  background-color: aliceblue;
+}
+#app .container > .row .blocks .handle .icon-bar {
+  background-color: antiquewhite;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  margin-top: 5px;
 }
 #app .container > .row .blocks textarea {
   width: 100%;
+  border: 1px solid antiquewhite;
+  resize: none;
+  height: 200px;
+}
+#app .container > .row .blocks textarea:hover {
+  resize: vertical;
+}
+#app .container > .row ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+#app .container > .row ul > li {
+  width: 150px;
+  height: 100px;
+  border: 1px solid antiquewhite;
+  text-align: center;
+  line-height: 100px;
+  cursor: default;
 }

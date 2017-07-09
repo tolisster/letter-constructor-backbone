@@ -1,4 +1,5 @@
 import Marionette from 'backbone.marionette';
+import Block from '../models/Block';
 import BlockItemView from './BlockItemView';
 import Sortable from '../behaviors/SortableBehavior';
 
@@ -9,5 +10,9 @@ export default Marionette.CollectionView.extend({
       behaviorClass: Sortable,
       containment: 'parent'
     }
-  ]
+  ],
+
+  onReceiveView(index) {
+    this.collection.add(new Block, {at: index});
+  }
 });

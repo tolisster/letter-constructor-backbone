@@ -1,5 +1,4 @@
 import Marionette from 'backbone.marionette';
-import Block from '../models/Block';
 
 export default Marionette.Behavior.extend({
   events: {
@@ -28,8 +27,7 @@ export default Marionette.Behavior.extend({
   },
 
   onReceive: function(event, ui) {
-    const collection = this.view.collection;
-    collection.add(new Block, {at: ui.helper.index()});
+    this.view.triggerMethod('receive:view', ui.helper.index());
     ui.helper.remove();
   },
 

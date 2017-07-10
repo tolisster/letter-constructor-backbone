@@ -8,5 +8,6 @@ export default Backbone.Model.extend({
     }
   }
 }, {
+  // TODO remove test class property
   uniqueId: 0
 });

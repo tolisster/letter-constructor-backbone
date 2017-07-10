@@ -21,6 +21,7 @@ export default Marionette.CollectionView.extend({
   },
 
   onReceiveView(index) {
+    // TODO add possibility to check type of block dropped
     this.collection.add(new Block, {at: index});
   },
 

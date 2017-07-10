@@ -19,6 +19,7 @@ export default Marionette.Behavior.extend({
 
   onUpdate: function(event, ui) {
     const collection = this.view.collection;
+    // get the attached model
     const model = collection.get(ui.item.data('model-cid'));
     const index = ui.item.index();
     // do not use silent to notify other obversers.
@@ -27,11 +28,14 @@ export default Marionette.Behavior.extend({
   },
 
   onReceive: function(event, ui) {
+    // pass up
     this.view.triggerMethod('receive:view', ui.helper.index());
+    // remove default jQuery UI behavior
     ui.helper.remove();
   },
 
   onAddChild: function(currentView, childView) {
+    // bind the element to the model by cid
     childView.$el.data('model-cid', childView.model.cid);
   }
 });

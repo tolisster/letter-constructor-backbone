@@ -16,8 +16,11 @@ export default Marionette.View.extend({
   },
 
   initialize() {
+    // initialize default letter settings
     this.settingsModel = new Backbone.Model({'background-color': '#faebd7'});
+    // blocks in letter
     this.blockCollection = new BlockCollection;
+    // pre-establish blocks view
     this.blockCollectionView = new BlockCollectionView({
       collection: this.blockCollection,
       settingsModel: this.settingsModel
@@ -27,9 +30,11 @@ export default Marionette.View.extend({
   onRender() {
     this.showChildView('blocks', this.blockCollectionView);
     this.showChildView('tools', new ToolsView({
+      // setup sortable connection
       blockCollectionView: this.blockCollectionView
     }));
     this.$el.find('ul, li').disableSelection();
+    // TODO refactor multiple field settings
     this.showChildView('backgroundColorField', new FieldView({
       model: this.settingsModel,
       fieldName: 'background-color',
